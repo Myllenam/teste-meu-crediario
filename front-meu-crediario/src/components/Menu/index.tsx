@@ -11,10 +11,14 @@ import {
   StyledToolBar,
 } from "./styled";
 import { DesktopMenu } from "./components/DesktopMenu";
+import { IMenuProps } from "../../models";
 
-export const Menu: FC<{onShowSideMenu:()=>void,  isUpSm:boolean}> = ({onShowSideMenu,isUpSm}) => {
+
+
+
+export const Menu: FC<IMenuProps> = ({onShowSideMenu,isUpSm}) => {
   return (
-    <StyledAppBar>
+    <StyledAppBar data-testid="menu">
       <StyledToolBar>
         {!isUpSm && <IconButton onClick={onShowSideMenu}><StyledFontAwesomeIcon icon="bars" /></IconButton>}
         <StyledContainerImage>

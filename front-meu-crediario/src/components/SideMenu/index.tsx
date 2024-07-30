@@ -1,17 +1,21 @@
-import { FC } from 'react'
-import { StyledDrawer } from './styled'
-import { Button } from '@mui/material'
+import { FC } from "react";
 
-export const SideMenu:FC<{onHideSideMenu:()=>void, onShowSideMenu:()=>void, open:boolean}> = ({onHideSideMenu,onShowSideMenu,open}) => {
+import { StyledDrawer } from "./styled";
+import { Header } from "./components/Header";
+import { BoxIcons } from "./components/BoxIcons";
+import { ISideMenuProps } from "../../models";
+
+export const SideMenu: FC<ISideMenuProps> = ({ onHideSideMenu, onShowSideMenu, open }) => {
   return (
     <StyledDrawer
-    onClose={onHideSideMenu}
-    onOpen={onShowSideMenu}
-    open={open}
-    variant="temporary"
-    anchor="left"
-  >
-   <Button>ff</Button>
-  </StyledDrawer>
-  )
-}
+      onClose={onHideSideMenu}
+      onOpen={onShowSideMenu}
+      open={open}
+      variant="temporary"
+      anchor="left"
+    >
+      <Header />
+      <BoxIcons/>
+    </StyledDrawer>
+  );
+};

@@ -11,11 +11,12 @@ export const StyledAppBar = styled(AppBar)`
 `;
 
 export const StyledToolBar = styled(Toolbar)`
-  ${({ theme }) => theme.breakpoints.down(200)} {
+${({ theme }) => theme.breakpoints.down(200)} {
+  width:100%;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+   justify-content:center;
   }
+  
 `;
 export const StyledContainerImage = styled(Box)`
   ${({ theme }) => theme.breakpoints.down("sm")} {
@@ -27,11 +28,15 @@ export const StyledContainerImage = styled(Box)`
 
 export const StyledImage = styled(Box)<{ src: string }>`
   width: 168px;
-  ${({ theme }) => theme.breakpoints.down(300)} {
-    width: 110px;
+  ${({ theme }) => theme.breakpoints.down(360)} {
+    width:70%;
+    padding-left:20px;
   }
-  ${({ theme }) => theme.breakpoints.down(120)} {
-    width: 45px;
+ 
+  
+  ${({ theme }) => theme.breakpoints.down(200)} {
+    display: none;
+    
   }
 `;
 

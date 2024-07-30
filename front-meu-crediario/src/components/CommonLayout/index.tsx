@@ -1,10 +1,10 @@
 import { FC, useState } from 'react'
 import { Outlet } from 'react-router-dom'
+import { useMediaQuery } from '@mui/material'
 
 import { Menu } from '../Menu'
 import { StyledContainer, StyledContainerMain } from './styled'
 import { SideMenu } from '../SideMenu'
-import { useMediaQuery } from '@mui/material'
 import { theme } from '../../styles/theme'
 
 export const Component:FC = () => {
@@ -20,7 +20,7 @@ export const Component:FC = () => {
   return (
     <StyledContainer> 
         <Menu onShowSideMenu={onShowSideMenu}  isUpSm={isUpSm}/>
-        {showSideMenu && !isUpSm && <SideMenu onHideSideMenu={onHideSideMenu} onShowSideMenu={onShowSideMenu} open={showSideMenu} />}
+        {!isUpSm && <SideMenu onHideSideMenu={onHideSideMenu} onShowSideMenu={onShowSideMenu} open={showSideMenu} />}
         <StyledContainerMain>
         <Outlet/>
         </StyledContainerMain>

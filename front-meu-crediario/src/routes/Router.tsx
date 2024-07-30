@@ -1,11 +1,9 @@
-import { FC } from "react";
 import {
   createBrowserRouter,
   Navigate,
-  RouterProvider,
 } from "react-router-dom";
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
     lazy: async () => await import("../components/CommonLayout"),
@@ -37,6 +35,4 @@ const router = createBrowserRouter([
   },
 ]);
 
-export const Router: FC = () => {
-  return <RouterProvider router={router} />;
-};
+
