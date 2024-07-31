@@ -13,6 +13,7 @@ export const SideMenu: FC<ISideMenuProps> = ({ onHideSideMenu, onShowSideMenu, o
       open={open}
       variant="temporary"
       anchor="left"
+      data-testid="side-menu"
     >
       <Header />
       <BoxIcons/>

@@ -9,7 +9,7 @@ import {
 
 export const BoxIcons: FC = () => {
   return (
-    <StyledBox>
+    <StyledBox data-testid="side-menu-icons">
       <StyledNavLink to="/inicio">
         <StyledFontAwesomeIcon icon="house-chimney" />
         <StyledButtonText>Página Inicial</StyledButtonText>

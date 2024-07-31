@@ -5,7 +5,7 @@ import { StyledBox, StyledBoxImage } from './styled'
 
 export const Header:FC = () => {
   return (
-    <StyledBox>
+    <StyledBox data-testid="side-menu-header">
     <StyledBoxImage src={logo} component="img"/>
     </StyledBox>
   )

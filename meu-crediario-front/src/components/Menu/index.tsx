@@ -21,7 +21,7 @@ export const Menu: FC<IMenuProps> = ({onShowSideMenu,isUpSm}) => {
   return (
     <StyledAppBar data-testid="menu">
       <StyledToolBar>
-        {!isUpSm && <IconButton onClick={onShowSideMenu}><StyledFontAwesomeIcon icon="bars" /></IconButton>}
+        {!isUpSm && <IconButton onClick={onShowSideMenu} data-testid="menu-mobile-icon"><StyledFontAwesomeIcon icon="bars" /></IconButton>}
         <StyledContainerImage>
           <NavLink to="/inicio">
             <StyledImage component="img" src={logo} />

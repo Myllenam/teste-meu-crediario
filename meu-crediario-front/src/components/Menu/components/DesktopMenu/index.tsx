@@ -9,7 +9,7 @@ import {
 
 export const DesktopMenu: FC = () => {
   return (
-    <StyledBox>
+    <StyledBox data-testid="desktop-menu">
       <StyledNavLink to="/inicio">
         <StyledButton>Página Inicial</StyledButton>
       </StyledNavLink>
