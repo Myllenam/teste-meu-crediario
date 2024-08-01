@@ -6,7 +6,7 @@ export interface IContractsResponse {
 export interface IQuota {
     valorvencimento: number;
     datavencimento: string;
-    dataultimopagamento: string;
+    dataultimopagamento?: string;
     totalpago: number;
     capitalaberto: number;
 }
