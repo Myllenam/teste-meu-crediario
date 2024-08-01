@@ -1,11 +1,4 @@
-import dataMock from "../mockData/historicodeMaria.json"
-
-export interface IHighestDebtResponse {
-    mes: string;
-    total_aberto: number;
-}
-
-const teste = {
+{
     "contratos": [
         {
             "parcelas": [
@@ -108,6 +101,13 @@ const teste = {
                     "totalpago": 5.0,
                     "capitalaberto": 0
                 },
+                {
+                    "valorvencimento": 5.0,
+                    "datavencimento": "2019-06-18",
+                    "dataultimopagamento": "2019-06-19",
+                    "totalpago": 5.0,
+                    "capitalaberto": 0
+                }
 
 
             ],
@@ -117,48 +117,4 @@ const teste = {
             "valorentrada": 0,
             "valorfinanciado": 10.0
         }]
-};
-
-
-
-function extrairAnoEMes(data: string): string {
-    const [ano, mes] = data.split('-');
-    return `${mes}/${ano}`;
-}
-
-function encontrarMaiorTotalAberto(resultados: IHighestDebtResponse[]): IHighestDebtResponse | null {
-    if (resultados.length === 0) {
-        return null;
-    }
-
-    return resultados.reduce((max, resultado) => {
-        return resultado.total_aberto > max.total_aberto ? resultado : max;
-    });
-}
-export const highestDebt = (): IHighestDebtResponse | null => {
-    const totaisPorMes = new Map<string, number>();
-
-    dataMock.contratos.forEach(({ parcelas, valortotal }) => {
-        let valorAberto = valortotal; // Inicialmente o valor total do contrato
-
-        parcelas.forEach((parcela, index) => {
-            const { datavencimento } = parcela;
-            const mesAno = extrairAnoEMes(datavencimento);
-
-            if (index === 0) {
-                totaisPorMes.set(mesAno, (totaisPorMes.get(mesAno) || 0) + valorAberto);
-            } else {
-                valorAberto -= parcela.valorvencimento;
-
-                totaisPorMes.set(mesAno, (totaisPorMes.get(mesAno) || 0) + valorAberto);
-            }
-        });
-    });
-
-    const resultados: IHighestDebtResponse[] = [];
-    totaisPorMes.forEach((totalAberto, mesAno) => {
-        resultados.push({ mes: mesAno, total_aberto: totalAberto });
-    });
-    const maiorTotalAberto = encontrarMaiorTotalAberto(resultados);
-    return maiorTotalAberto;
 }

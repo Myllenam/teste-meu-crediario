@@ -1,4 +1,4 @@
-import dataMock from "../mockData/historicodeMaria.json" 
+import dataMock from "../../../historicodeMaria.json" 
 
 export interface IQuota {
     valorvencimento: number;

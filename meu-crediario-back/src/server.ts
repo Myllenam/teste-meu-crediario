@@ -1,7 +1,7 @@
 import express from "express";
-import { createServer as createServerHttp, Server } from "http";
+import { createServer as createServerHttp } from "http";
 import cors from "cors";
-import expressRoutes from "./expressRoutes";
+import expressRoutes from "./routes/routes";
 
 
 const app = express();
