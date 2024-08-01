@@ -1,8 +1,6 @@
 
-
-export interface IContractsResponseData {
-    data:IContract[],
-    totalPages:number;
+export interface IContracts {
+    contratos: IContract[];
 }
 
 export interface IQuota {
@@ -20,4 +18,9 @@ export interface IContract {
     valortotal: number;
     valorentrada: number;
     valorfinanciado: number;
+}
+
+export interface IContractsResponse{
+    totalPages:number;
+    data:IContract[];
 }

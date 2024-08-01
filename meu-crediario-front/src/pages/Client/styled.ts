@@ -8,6 +8,14 @@ export const StyledContainer = styled(Box)`
   align-items:center;
   justify-content:space-between;
 `;
+export const StyledContainerLoading = styled(Box)`
+  width:100%;
+  height:86vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+`;
 export const StyledTableContainer = styled(Box)`
   width:98%;
   padding-top:40px;

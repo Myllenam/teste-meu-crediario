@@ -1,46 +1,56 @@
-import dataMock from "../../../historicodeMaria.json"
+import { IContracts } from "../models/contract";
 import { IHighestDebtResponse } from "../models/highest-debt.response";
-
 
 const getYearMonth = (date: string): string => {
     const [year, month] = date.split('-');
-    return `${year}/${month}`;
-}
+    return `${month}/${year}`;
+};
 
-const encontrarMaiorTotalAberto = (results: IHighestDebtResponse[]): IHighestDebtResponse | null => {
+const calculateOpenValues = (valortotal: number, parcelas: { datavencimento: string, valorvencimento: number }[]): Map<string, number> => {
+    const monthTotals = new Map<string, number>();
+    let openValue = valortotal;
+
+    parcelas.forEach(({ datavencimento, valorvencimento }, index) => {
+        const yearMonth = getYearMonth(datavencimento);
+        
+        if (index === 0) {
+            monthTotals.set(yearMonth, (monthTotals.get(yearMonth) || 0) + openValue);
+        } else {
+            openValue -= valorvencimento;
+            monthTotals.set(yearMonth, (monthTotals.get(yearMonth) || 0) + openValue);
+        }
+    });
+
+    return monthTotals;
+};
+
+const aggregateMonthTotals = (contratos: { valortotal: number, parcelas: { datavencimento: string, valorvencimento: number }[] }[]): Map<string, number> => {
+    return contratos.reduce((totals, { valortotal, parcelas }) => {
+        const monthTotals = calculateOpenValues(valortotal, parcelas);
+        
+        monthTotals.forEach((value, key) => {
+            totals.set(key, (totals.get(key) || 0) + value);
+        });
+
+        return totals;
+    }, new Map<string, number>());
+};
+
+const findHighestDebt = (results: IHighestDebtResponse[]): IHighestDebtResponse | null => {
     if (results.length === 0) {
         return null;
     }
 
-    return results.reduce((max, resultado) => {
-        return resultado.total_aberto > max.total_aberto ? resultado : max;
-    });
-}
+    return results.reduce((max, resultado) => resultado.total_aberto > max.total_aberto ? resultado : max);
+};
 
-export const highestDebt = (): IHighestDebtResponse | null => {
-    const totaisPorMes = new Map<string, number>();
+export const highestDebt = (dataMock: IContracts): IHighestDebtResponse | null => {
+    const monthTotals = aggregateMonthTotals(dataMock.contratos);
 
-    dataMock.contratos.forEach(({ parcelas, valortotal }) => {
-        let valorAberto = valortotal;
+    const results: IHighestDebtResponse[] = Array.from(monthTotals.entries()).map(([mes, total_aberto]) => ({
+        mes,
+        total_aberto
+    }));
 
-        parcelas.forEach((parcela, index) => {
-            const { datavencimento } = parcela;
-            const yearMonth = getYearMonth(datavencimento);
-
-            if (index === 0) {
-                totaisPorMes.set(yearMonth, (totaisPorMes.get(yearMonth) || 0) + valorAberto);
-            } else {
-                valorAberto -= parcela.valorvencimento;
-
-                totaisPorMes.set(yearMonth, (totaisPorMes.get(yearMonth) || 0) + valorAberto);
-            }
-        });
-    });
-
-    const result: IHighestDebtResponse[] = [];
-    totaisPorMes.forEach((totalAberto, mesAno) => {
-        result.push({ mes: mesAno, total_aberto: totalAberto });
-    });
-    const maiorTotalAberto = encontrarMaiorTotalAberto(result);
-    return maiorTotalAberto;
-}
+    return findHighestDebt(results);
+};

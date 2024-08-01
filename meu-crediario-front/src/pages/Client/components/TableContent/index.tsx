@@ -1,9 +1,11 @@
 import { FC } from "react";
-import { IconButton } from "@mui/material";
+import { IconButton, TableRow } from "@mui/material";
 
 import { TableData } from "src/components/TableData";
 import { DataTableCell } from "src/components/TableData/components/TableCell";
 import { StyledFontAwesomeIcon } from "./styled";
+import { IContract, IQuota } from "src/models";
+import { formatMoneyValue, formatToLocalDate } from "src/utils";
 
 const columns = [
   { headerName: "Detalhes" },
@@ -13,19 +15,26 @@ const columns = [
   { headerName: "Valor Total" },
   { headerName: "Data" },
 ];
-export const TableContent: FC<{ onOpenDialog: () => void }> = ({ onOpenDialog }) => {
+export const TableContent: FC<{
+  onOpenDialog: (details: IQuota[]) => void;
+  data: IContract[] | undefined;
+}> = ({ onOpenDialog, data }) => {
   return (
     <TableData columns={columns}>
-      <DataTableCell isComponent={true}>
-        <IconButton onClick={onOpenDialog}>
-          <StyledFontAwesomeIcon icon="search-plus" />
-        </IconButton>
-      </DataTableCell>
-      <DataTableCell>0480001240004830000001669920170504</DataTableCell>
-      <DataTableCell>R$ 15,00</DataTableCell>
-      <DataTableCell>R$ 0,00</DataTableCell>
-      <DataTableCell>R$ 20.000,20</DataTableCell>
-      <DataTableCell>05/04/2017</DataTableCell>
+      {data?.map((item, index) => (
+        <TableRow key={index}>
+          <DataTableCell isComponent={true}>
+            <IconButton onClick={() => onOpenDialog(item.parcelas)}>
+              <StyledFontAwesomeIcon icon="search-plus" />
+            </IconButton>
+          </DataTableCell>
+          <DataTableCell>{item.contrato}</DataTableCell>
+          <DataTableCell>{formatMoneyValue(item.valorentrada)}</DataTableCell>
+          <DataTableCell>{formatMoneyValue(item.valorfinanciado)}</DataTableCell>
+          <DataTableCell>{formatMoneyValue(item.valortotal)}</DataTableCell>
+          <DataTableCell>{formatToLocalDate(item.data)}</DataTableCell>
+        </TableRow>
+      ))}
     </TableData>
   );
 };
