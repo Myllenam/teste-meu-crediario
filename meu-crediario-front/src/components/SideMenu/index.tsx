@@ -1,9 +1,9 @@
-import { FC } from "react";
+import { type FC } from "react";
 
 import { StyledDrawer } from "./styled";
 import { Header } from "./components/Header";
 import { BoxIcons } from "./components/BoxIcons";
-import { ISideMenuProps } from "../../models";
+import { type ISideMenuProps } from "../../models";
 
 export const SideMenu: FC<ISideMenuProps> = ({ onHideSideMenu, onShowSideMenu, open }) => {
   return (
@@ -16,7 +16,7 @@ export const SideMenu: FC<ISideMenuProps> = ({ onHideSideMenu, onShowSideMenu, o
       data-testid="side-menu"
     >
       <Header />
-      <BoxIcons/>
+      <BoxIcons />
     </StyledDrawer>
   );
 };

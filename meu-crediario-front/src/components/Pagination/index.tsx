@@ -1,9 +1,6 @@
 import { type FC } from "react";
 
-import {
-  StyledPagination,
-  StyledPaginationItem,
-} from "./styled";
+import { StyledPagination, StyledPaginationItem } from "./styled";
 
 export const Pagination: FC<{
   page: number;
@@ -19,13 +16,7 @@ export const Pagination: FC<{
         if (p === page) return;
         onChange(p);
       }}
-      renderItem={(item) => (
-        <StyledPaginationItem
-          currentpage={item.page as number}
-         
-          {...item}
-        />
-      )}
+      renderItem={(item) => <StyledPaginationItem currentpage={item.page as number} {...item} />}
     />
   );
 };

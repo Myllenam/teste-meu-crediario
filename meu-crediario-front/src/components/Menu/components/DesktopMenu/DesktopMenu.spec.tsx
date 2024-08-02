@@ -9,7 +9,7 @@ describe("DesktopMenu", () => {
     render(
       <TestAppThemeProvider>
         <MemoryRouter>
-          <DesktopMenu  />
+          <DesktopMenu />
         </MemoryRouter>
       </TestAppThemeProvider>,
     );
@@ -19,6 +19,4 @@ describe("DesktopMenu", () => {
     setup();
     expect(screen.getByTestId("desktop-menu")).toBeInTheDocument();
   });
-
- 
 });

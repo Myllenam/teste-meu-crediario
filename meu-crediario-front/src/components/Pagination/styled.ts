@@ -1,6 +1,5 @@
 import { Pagination, PaginationItem, styled } from "@mui/material";
 
-
 const smallPaginatorSize = 25;
 const mediumPaginatorSize = 30;
 
@@ -13,7 +12,7 @@ export const StyledPagination = styled(Pagination)`
 export const StyledPaginationItem = styled(PaginationItem)<{ currentpage: number }>`
   &.MuiPaginationItem-page,
   &.Mui-selected {
-    border: 2px solid ${({ theme }) =>  theme.palette.primary.main};
+    border: 2px solid ${({ theme }) => theme.palette.primary.main};
     color: ${({ theme }) => theme.palette.primary.main};
     font-family: ${({ theme }) => theme.typography.caption.fontFamily};
     font-size: ${({ currentpage }) => (currentpage < 100 ? 12 : 10)}px;

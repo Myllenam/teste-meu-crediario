@@ -9,7 +9,7 @@ export const StyledBox = styled(Box)`
   align-items: center;
   justify-content: center;
   gap: 30px;
-  padding: 55px 5px 5px 5px;;
+  padding: 55px 5px 5px 5px;
 `;
 
 export const StyledButtonText = styled(Typography)`
@@ -18,7 +18,7 @@ export const StyledButtonText = styled(Typography)`
   font-family: ${({ theme }) => theme.typography.caption.fontFamily};
   font-size: 20px;
   font-weight: 600;
-  text-align:center;
+  text-align: center;
   color: ${({ theme }) => theme.colors.grayDarkest};
   ${({ theme }) => theme.breakpoints.down("xs")} {
     font-size: 16px;
@@ -31,7 +31,7 @@ export const StyledNavLink = styled(NavLink)`
   padding: 8px 20px 8px 20px;
   width: 202px;
   display: flex;
-  gap:15px;
+  gap: 15px;
   align-items: center;
   justify-content: start;
   text-decoration: none;
@@ -48,12 +48,11 @@ export const StyledNavLink = styled(NavLink)`
     }
   }
   ${({ theme }) => theme.breakpoints.down("xs")} {
-   width:100%;
-   
+    width: 100%;
   }
   ${({ theme }) => theme.breakpoints.down(170)} {
-   flex-direction:column;
-   justify-content:center;
+    flex-direction: column;
+    justify-content: center;
   }
 `;
 

@@ -1,7 +1,4 @@
-import {
-  createBrowserRouter,
-  Navigate,
-} from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 
 export const router = createBrowserRouter([
   {
@@ -34,5 +31,3 @@ export const router = createBrowserRouter([
     element: <Navigate to="/inicio" />,
   },
 ]);
-
-

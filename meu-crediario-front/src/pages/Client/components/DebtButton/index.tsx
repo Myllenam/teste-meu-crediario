@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { type FC } from "react";
 
 import {
   StyledButton,
@@ -7,9 +7,9 @@ import {
   StyledTypographyButton,
 } from "./styled";
 
-export const DebtButton: FC<{onOpenDialog:()=>void}> = ({onOpenDialog}) => {
+export const DebtButton: FC<{ onOpenDialog: () => void }> = ({ onOpenDialog }) => {
   return (
-    <StyledButtonContainer onClick={onOpenDialog}>
+    <StyledButtonContainer onClick={onOpenDialog} data-testid="debt-button">
       <StyledButton>
         <StyledFontAwesomeIcon icon="money-check-dollar" />
         <StyledTypographyButton>Mês de maior endividamento</StyledTypographyButton>

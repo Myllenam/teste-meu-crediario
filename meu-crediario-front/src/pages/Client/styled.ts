@@ -1,28 +1,29 @@
 import { Box, styled, Typography } from "@mui/material";
 
 export const StyledContainer = styled(Box)`
-  width:100%;
-  height:86vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:space-between;
+  width: 100%;
+  height: 86vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 `;
 export const StyledContainerLoading = styled(Box)`
-  width:100%;
-  height:86vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+  width: 100%;
+  height: 86vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 export const StyledTableContainer = styled(Box)`
-  width:98%;
-  padding-top:40px;
+  width: 98%;
+  padding-top: 25px;
+  padding-bottom: 10px;
 `;
 
 export const StyledTypographyName = styled(Typography)`
-padding:0 0 5px 10px;;
+  padding: 0 0 5px 10px;
   color: ${({ theme }) => theme.colors.grayDarkest};
   font-family: ${({ theme }) => theme.typography.body1.fontFamily};
   font-size: 18px;
@@ -34,5 +35,3 @@ padding:0 0 5px 10px;;
     font-size: 13px;
   }
 `;
-
-

@@ -8,5 +8,4 @@ export interface ITableDataProps {
 export interface IDataTableColumns {
   headerName: string;
   width?: string;
-
 }

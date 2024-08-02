@@ -1,11 +1,6 @@
-import { FC } from "react";
+import { type FC } from "react";
 
-import {
-  StyledBox,
-  StyledButton,
-  StyledNavLink,
-  StyledSideBar,
-} from "./styled";
+import { StyledBox, StyledButton, StyledNavLink, StyledSideBar } from "./styled";
 
 export const DesktopMenu: FC = () => {
   return (

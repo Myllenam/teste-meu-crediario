@@ -12,7 +12,7 @@ const calculateOpenValues = (valortotal: number, parcelas: { datavencimento: str
 
     parcelas.forEach(({ datavencimento, valorvencimento }, index) => {
         const yearMonth = getYearMonth(datavencimento);
-        
+
         if (index === 0) {
             monthTotals.set(yearMonth, (monthTotals.get(yearMonth) || 0) + openValue);
         } else {
@@ -27,7 +27,7 @@ const calculateOpenValues = (valortotal: number, parcelas: { datavencimento: str
 const aggregateMonthTotals = (contratos: { valortotal: number, parcelas: { datavencimento: string, valorvencimento: number }[] }[]): Map<string, number> => {
     return contratos.reduce((totals, { valortotal, parcelas }) => {
         const monthTotals = calculateOpenValues(valortotal, parcelas);
-        
+
         monthTotals.forEach((value, key) => {
             totals.set(key, (totals.get(key) || 0) + value);
         });

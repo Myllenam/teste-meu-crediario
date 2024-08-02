@@ -1,14 +1,14 @@
-import { FC } from "react";
+import { type FC } from "react";
 import { IconButton, TableRow } from "@mui/material";
 
 import { TableData } from "src/components/TableData";
 import { DataTableCell } from "src/components/TableData/components/TableCell";
 import { StyledFontAwesomeIcon } from "./styled";
-import { IContract, IQuota } from "src/models";
+import { type IContract, type IQuota } from "src/models";
 import { formatMoneyValue, formatToLocalDate } from "src/utils";
 
 const columns = [
-  { headerName: "Detalhes" },
+  { headerName: "Parcelas" },
   { headerName: "Contrato" },
   { headerName: "Valor Entrada" },
   { headerName: "Valor Financiado" },
@@ -24,7 +24,11 @@ export const TableContent: FC<{
       {data?.map((item, index) => (
         <TableRow key={index}>
           <DataTableCell isComponent={true}>
-            <IconButton onClick={() => onOpenDialog(item.parcelas)}>
+            <IconButton
+              onClick={() => {
+                onOpenDialog(item.parcelas);
+              }}
+            >
               <StyledFontAwesomeIcon icon="search-plus" />
             </IconButton>
           </DataTableCell>

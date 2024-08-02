@@ -4,8 +4,7 @@ import { type TransitionProps } from "@mui/material/transitions";
 
 import { StyledDialog } from "./styled";
 import { DialogHeader } from "./components/DialogHeader";
-import { DialogContainerProps } from "src/models";
-
+import { type DialogContainerProps } from "src/models";
 
 const Transition = forwardRef(function Transition(
   props: TransitionProps & {

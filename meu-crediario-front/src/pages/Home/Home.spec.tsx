@@ -4,7 +4,7 @@ import { Component } from ".";
 import { TestAppThemeProvider } from "src/tests";
 import { MemoryRouter } from "react-router-dom";
 
-describe("CommonLayout", () => {
+describe("Home", () => {
   const setup = (): void => {
     render(
       <TestAppThemeProvider>
@@ -17,6 +17,6 @@ describe("CommonLayout", () => {
 
   test("should render the component", () => {
     setup();
-    expect(screen.getByTestId("common-layout")).toBeInTheDocument();
+    expect(screen.getByTestId("home")).toBeInTheDocument();
   });
 });

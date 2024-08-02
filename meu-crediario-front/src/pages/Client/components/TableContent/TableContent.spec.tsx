@@ -1,22 +1,21 @@
 import { render, screen } from "@testing-library/react";
+import { vi } from "vitest";
 
-import { Component } from ".";
+import { TableContent } from ".";
 import { TestAppThemeProvider } from "src/tests";
-import { MemoryRouter } from "react-router-dom";
 
-describe("CommonLayout", () => {
+describe("TableContent", () => {
+  const onMock = vi.fn();
   const setup = (): void => {
     render(
       <TestAppThemeProvider>
-        <MemoryRouter>
-          <Component />
-        </MemoryRouter>
+        <TableContent onOpenDialog={onMock} data={[]} />
       </TestAppThemeProvider>,
     );
   };
 
   test("should render the component", () => {
     setup();
-    expect(screen.getByTestId("common-layout")).toBeInTheDocument();
+    expect(screen.getByTestId("data-table-component")).toBeInTheDocument();
   });
 });

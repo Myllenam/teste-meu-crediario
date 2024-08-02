@@ -8,7 +8,7 @@ import { TestAppThemeProvider } from "src/tests";
 describe("Pagination", () => {
   let mockOnChange = vi.fn();
 
-  const setup = ( page = 1, totalPages = 10): void => {
+  const setup = (page = 1, totalPages = 10): void => {
     mockOnChange = vi.fn();
     render(
       <TestAppThemeProvider>
@@ -39,8 +39,7 @@ describe("Pagination", () => {
   });
 
   test("should show the last page", async () => {
-    setup( 1, 100);
+    setup(1, 100);
     expect(screen.getByText(100)).toBeInTheDocument();
   });
-
 });

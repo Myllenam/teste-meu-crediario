@@ -11,8 +11,7 @@ export const StyledContainer = styled(Box)`
 export const StyledBorderContaiener = styled(Box)`
   align-items: center;
   border-radius: 8px;
-  border: ${({ theme }) =>
- `2px solid ${theme.palette.secondary.main}` };
+  border: ${({ theme }) => `2px solid ${theme.palette.secondary.main}`};
   display: flex;
   flex-direction: column;
   min-height: 60px;

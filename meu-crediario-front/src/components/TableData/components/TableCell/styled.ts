@@ -1,4 +1,4 @@
-import {  TableCell, Typography, styled } from "@mui/material";
+import { TableCell, Typography, styled } from "@mui/material";
 
 export const StyledTableCell = styled(TableCell)<{ background?: string }>`
   background: ${({ theme, background }) => background || theme.colors.grayLight};
@@ -17,7 +17,3 @@ export const StyledDataTableCellTypography = styled(Typography)`
   line-height: 14px;
   text-align: center;
 `;
-
-
-
-

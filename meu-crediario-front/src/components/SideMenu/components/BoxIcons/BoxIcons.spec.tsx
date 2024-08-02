@@ -9,7 +9,7 @@ describe("BoxIcons", () => {
     render(
       <TestAppThemeProvider>
         <MemoryRouter>
-        <BoxIcons />
+          <BoxIcons />
         </MemoryRouter>
       </TestAppThemeProvider>,
     );

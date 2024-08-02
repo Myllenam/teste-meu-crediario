@@ -1,6 +1,6 @@
 import { type FC } from "react";
 
-import {  type ITableDataProps} from "src/models";
+import { type ITableDataProps } from "src/models";
 import { Table } from "./components/Table";
 import {
   StyledBorderContaiener,
@@ -9,17 +9,13 @@ import {
   StyledTableContainer,
 } from "./styled";
 
-
 export const TableData: FC<ITableDataProps> = ({ columns, children }) => {
-
   return (
     <StyledContainer data-testid="data-table-component">
-      <StyledBorderContaiener >
+      <StyledBorderContaiener>
         <StyledContainerTable>
           <StyledTableContainer>
-            <Table  columns={columns}>
-              {children}
-            </Table>
+            <Table columns={columns}>{children}</Table>
           </StyledTableContainer>
         </StyledContainerTable>
       </StyledBorderContaiener>

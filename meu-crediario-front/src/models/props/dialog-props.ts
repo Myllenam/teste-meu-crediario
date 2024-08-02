@@ -1,6 +1,6 @@
 import { type ReactNode } from "react";
 
-import { IDialogHeader } from "./dialog-header.props";
+import { type IDialogHeader } from "./dialog-header.props";
 
 export interface DialogContainerProps {
   open: boolean;

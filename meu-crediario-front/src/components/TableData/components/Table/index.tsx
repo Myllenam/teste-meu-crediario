@@ -1,7 +1,7 @@
-import { FC } from "react";
+import { type FC } from "react";
 import { TableBody, TableHead, TableRow } from "@mui/material";
 
-import { ITableProps } from "src/models";
+import { type ITableProps } from "src/models";
 import {
   StyledCellTypography,
   StyledTable,

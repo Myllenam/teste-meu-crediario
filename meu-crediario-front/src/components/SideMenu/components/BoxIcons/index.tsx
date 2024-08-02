@@ -1,11 +1,6 @@
-import { FC } from "react";
+import { type FC } from "react";
 
-import {
-  StyledBox,
-  StyledButtonText,
-  StyledFontAwesomeIcon,
-  StyledNavLink,
-} from "./styled";
+import { StyledBox, StyledButtonText, StyledFontAwesomeIcon, StyledNavLink } from "./styled";
 
 export const BoxIcons: FC = () => {
   return (

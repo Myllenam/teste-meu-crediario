@@ -1,5 +1,4 @@
-
 export interface IHighestDebtResponse {
-    mes: string;
-    total_aberto: number;
+  mes: string;
+  total_aberto: number;
 }

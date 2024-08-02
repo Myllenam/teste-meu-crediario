@@ -1,15 +1,13 @@
 import { type FC } from "react";
 
 import {
- 
   StyledDialogHeader,
   StyledFontAwesomeIcon,
   StyledIconButton,
   StyledTitleContainer,
   StyledTitleTypography,
 } from "./styled";
-import { IDialogHeader } from "src/models";
-
+import { type IDialogHeader } from "src/models";
 
 export const DialogHeader: FC<{ onClose: () => void; details: IDialogHeader }> = ({
   onClose,

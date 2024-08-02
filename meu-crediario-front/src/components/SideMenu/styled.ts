@@ -8,7 +8,7 @@ export const StyledDrawer = styled(SwipeableDrawer)`
     transition: all 0.3s ease;
     overflow: hidden;
     ${({ theme }) => theme.breakpoints.down("sm")} {
-        padding: 0;
-  }
+      padding: 0;
+    }
   }
 `;

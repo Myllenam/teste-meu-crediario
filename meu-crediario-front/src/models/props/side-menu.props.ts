@@ -1,5 +1,5 @@
-export interface ISideMenuProps{
-    onHideSideMenu: () => void;
-    onShowSideMenu: () => void;
-    open: boolean;
+export interface ISideMenuProps {
+  onHideSideMenu: () => void;
+  onShowSideMenu: () => void;
+  open: boolean;
 }
