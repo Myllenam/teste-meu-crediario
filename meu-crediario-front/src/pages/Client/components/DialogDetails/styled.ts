@@ -16,7 +16,6 @@ export const StyledDialogContainer = styled(Box)`
   max-width: 100%;
   width: 674px;
   gap:25px;
-  /* overflow: hidden; */
 `;
 
 export const StyledTextContainer = styled(Box)`
@@ -33,8 +32,6 @@ export const StyledContainer = styled(Box)`
 text-align:center;
 
 `;
-
-
 
 
 export const StyledTitle = styled(Typography)`

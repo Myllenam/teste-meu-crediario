@@ -1,7 +1,9 @@
+import { Express } from "express";
+
 import ContractsController from "../controllers/contracts.controller";
 
 
-export default (app: any) => {
+export default (app: Express) => {
 
   const contractsController = new ContractsController();
 

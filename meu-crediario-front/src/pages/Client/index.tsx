@@ -7,7 +7,7 @@ import { TableContent } from "./components/TableContent";
 import { DebtButton } from "./components/DebtButton";
 import { DialogDetails } from "./components/DialogDetails";
 import { DialogDebt } from "./components/DialogDebt";
-import { useGetContracts } from "src/hooks";
+import { useGetContracts, usePostDebt } from "src/hooks";
 import { IQuota } from "src/models";
 
 export const Component: FC = () => {
@@ -16,6 +16,8 @@ export const Component: FC = () => {
   const [debtDialog, setDebtDialog] = useState(false);
   const [dialogQuotaData, setDialogQuotaData] = useState<IQuota[]|[]>([]);
   const {data,loading}= useGetContracts(page, 10)
+  const { loadingDebt, debtData, postData } = usePostDebt();
+
   const onOpenDialog = (details:IQuota[])=>{
     setDialog(true);
     setDialogQuotaData(details);
@@ -26,6 +28,7 @@ export const Component: FC = () => {
 
   const onOpenDebtDialog = ()=>{
     setDebtDialog(true)
+    postData()
   }
   const onCloseDebtDialog = ()=>{
     setDebtDialog(false)
@@ -33,9 +36,9 @@ export const Component: FC = () => {
 
   return (
     <>
-    {loading?<StyledContainerLoading><CircularProgress/></StyledContainerLoading>:<StyledContainer>
+    {loading || loadingDebt?<StyledContainerLoading><CircularProgress/></StyledContainerLoading>:<StyledContainer>
       <DialogDetails onClose={onCloseDialog} open={dialog} quotaData={dialogQuotaData}/>
-      <DialogDebt onClose={onCloseDebtDialog} open={debtDialog}/>
+      <DialogDebt onClose={onCloseDebtDialog} open={debtDialog} debtData={debtData}/>
       <StyledTableContainer>
       <StyledTypographyName>Maria Fulana:</StyledTypographyName>
       <DebtButton onOpenDialog={onOpenDebtDialog}/>

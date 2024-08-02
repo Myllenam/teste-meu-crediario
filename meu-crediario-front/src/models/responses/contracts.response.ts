@@ -21,3 +21,7 @@ export interface IContract {
     valorentrada: number;
     valorfinanciado: number;
 }
+
+export interface IContractObject{
+    contratos:IContract[];
+}
